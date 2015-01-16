@@ -31,19 +31,27 @@ syntax on
 filetype plugin on
 filetype indent on
 
+"Mappings
+"----Editing nvimrc
 nnoremap <leader>e :e~/.nvim/nvimrc<CR>
-nnoremap <leader>w :w<CR>
 nnoremap <leader>r :source ~/.nvim/nvimrc<CR>
-nnoremap <leader>b :bNext<CR>
-nnoremap <leader>k :bdelete<CR>
-nnoremap <leader>k :bdelete<CR>
-nnoremap <leader>i :set list!<CR>
+
+"----General editing
 nnoremap <leader><leader> V
 vnoremap <leader><leader> V
+nnoremap <leader>i :set list!<CR>
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+inoremap <C-c> <ESC>
+vnoremap <C-c> <ESC>
+
+"----File manipulation
+nnoremap <leader>w :w<CR>
+nnoremap <leader>b :bNext<CR>
+nnoremap <leader>k :bdelete<CR>
+nnoremap <leader>k :bdelete<CR>
 
 "Vim Fugitive mappings
 nnoremap <leader>gs :Gstatus<CR>
