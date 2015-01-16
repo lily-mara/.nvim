@@ -6,6 +6,8 @@ Plug 'natemara/vim-monokai'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
 
 call plug#end()
 
