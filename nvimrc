@@ -9,9 +9,11 @@ Plug 'tpope/vim-surround'
 
 call plug#end()
 
+"Leader key
 let mapleader=" "
 nnoremap <SPACE> <Nop>
 
+"Basic settings
 set number
 set linebreak
 set textwidth=100
@@ -52,6 +54,7 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>b :bNext<CR>
 nnoremap <leader>k :bdelete<CR>
 nnoremap <leader>k :bdelete<CR>
+nnoremap <leader>q :q<CR>
 
 "Vim Fugitive mappings
 nnoremap <leader>gs :Gstatus<CR>
