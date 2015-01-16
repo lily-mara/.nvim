@@ -1,6 +1,13 @@
 call plug#begin('~/.nvim/plugged')
 
 Plug 'benekastah/neomake'
+Plug 'airblade/vim-gitgutter'
+Plug 'natemara/vim-monokai'
+
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+
+call plug#end()
 
 let mapleader=" "
 nnoremap <SPACE> <Nop>
@@ -24,7 +31,7 @@ syntax on
 filetype plugin on
 filetype indent on
 
-nnoremap <leader>e :e~/_vimrc<CR>
+nnoremap <leader>e :e~/.nvim/nvimrc<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>r :source ~/.nvim/nvimrc<CR>
 nnoremap <leader>b :bNext<CR>
@@ -38,4 +45,11 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-color peachpuff
+"Vim Fugitive mappings
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gg :Gwrite<CR>:Gcommit<CR>
+nnoremap <leader>ga :Gwrite<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gb :Gblame<CR>
+
+color monokai
