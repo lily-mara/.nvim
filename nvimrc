@@ -17,7 +17,6 @@ nnoremap <SPACE> <Nop>
 set number
 set linebreak
 set textwidth=100
-set showmatch
 set visualbell
 set smartcase
 set ignorecase
@@ -54,7 +53,7 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>b :bNext<CR>
 nnoremap <leader>k :bdelete<CR>
 nnoremap <leader>k :bdelete<CR>
-nnoremap <leader>q :q<CR>
+nnoremap <leader>q <C-w>c
 
 "Vim Fugitive mappings
 nnoremap <leader>gs :Gstatus<CR>
