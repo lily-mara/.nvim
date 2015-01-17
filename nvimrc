@@ -30,7 +30,7 @@ set ruler
 set autochdir
 set undolevels=1000
 set backspace=indent,eol,start
-set listchars=eol:¬,tab:\|\|,trail:·
+set listchars=eol:¬,tab:\ \ ,trail:·
 syntax on
 filetype plugin on
 filetype indent on
