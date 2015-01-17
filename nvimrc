@@ -3,6 +3,7 @@ call plug#begin('~/.nvim/plugged')
 Plug 'benekastah/neomake'
 Plug 'airblade/vim-gitgutter'
 Plug 'natemara/vim-monokai'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -18,7 +19,7 @@ nnoremap <SPACE> <Nop>
 "Basic settings
 set number
 set linebreak
-set textwidth=100
+set textwidth=80
 set visualbell
 set smartcase
 set ignorecase
@@ -67,6 +68,14 @@ nnoremap <leader>gb :Gblame<CR>
 color monokai
 
 "Neomake settings
+let g:neomake_python_pep8alt_maker = {
+	\ 'exe': 'pep8',
+	\ 'args': ['--ignore=W191'],
+	\ 'errorformat': '%f:%l:%c: %m',
+	\ }
+
+let g:neomake_python_enabled_makers = ['pep8alt', 'pylint']
+
 augroup neomake
 	autocmd!
 	autocmd BufWritePost *.py Neomake
