@@ -76,7 +76,7 @@ let g:neomake_python_pep8alt_maker = {
 
 let g:neomake_python_enabled_makers = ['pep8alt', 'pylint']
 
-augroup neomake
+augroup neomake_after_save
 	autocmd!
 	autocmd BufWritePost *.py Neomake
 augroup END
@@ -85,6 +85,6 @@ augroup END
 augroup python_files
 	autocmd!
 	autocmd FileType python setlocal noexpandtab
-	autocmd FileType python set tabstop=4
-	autocmd FileType python set shiftwidth=4
+	autocmd FileType python setlocal tabstop=4
+	autocmd FileType python setlocal shiftwidth=4
 augroup END
