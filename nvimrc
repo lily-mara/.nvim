@@ -78,7 +78,7 @@ let g:neomake_python_enabled_makers = ['pep8alt', 'pylint']
 
 augroup neomake_after_save
 	autocmd!
-	autocmd BufWritePost *.py,*cpp,*hpp Neomake
+	autocmd BufWritePost *.py,*cpp,*hpp,*.c,*.h Neomake
 augroup END
 
 "Filetype specific settings
