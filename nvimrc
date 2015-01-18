@@ -88,3 +88,16 @@ augroup python_files
 	autocmd FileType python setlocal tabstop=4
 	autocmd FileType python setlocal shiftwidth=4
 augroup END
+
+"Strip trailing whitespace
+function! StripTrailingWhitespaces()
+	let l = line(".")
+	let c = col(".")
+	%s/\s\+$//e
+	call cursor(l, c)
+endfunction
+
+augroup trailing_whitespace
+	autocmd!
+	autocmd BufWritePre * :call StripTrailingWhitespaces()
+augroup END
