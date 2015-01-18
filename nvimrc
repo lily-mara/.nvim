@@ -1,6 +1,6 @@
 call plug#begin('~/.nvim/plugged')
 
-Plug 'benekastah/neomake'
+Plug 'natemara/neomake'
 Plug 'airblade/vim-gitgutter'
 Plug 'natemara/vim-monokai'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
@@ -75,21 +75,6 @@ let g:neomake_python_pep8alt_maker = {
 	\ }
 
 let g:neomake_python_enabled_makers = ['pep8alt', 'pylint']
-
-let g:neomake_cpp_clang_maker = {
-	\ 'exe': 'clang++',
-	\ 'args': ['-fsyntax-only'],
-	\ 'errorformat':
-		\ '%-G%f:%s:,' .
-		\ '%f:%l:%c: %trror: %m,' .
-		\ '%f:%l:%c: %tarning: %m,' .
-		\ '%f:%l:%c: %m,'.
-		\ '%f:%l: %trror: %m,'.
-		\ '%f:%l: %tarning: %m,'.
-		\ '%f:%l: %m',
-	\ }
-
-let g:neomake_cpp_enabled_makers = ['clang']
 
 augroup neomake_after_save
 	autocmd!
