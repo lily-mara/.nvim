@@ -76,6 +76,18 @@ let g:neomake_python_pep8alt_maker = {
 
 let g:neomake_python_enabled_makers = ['pep8alt', 'pylint']
 
+let g:neomake_error_sign = {
+	\ 'text': '>>',
+	\ 'texthl': 'ErrorMsg',
+	\ }
+
+hi NeomakeWarning ctermbg=3 ctermfg=0
+
+let g:neomake_warning_sign = {
+	\ 'text': '>>',
+	\ 'texthl': 'NeomakeWarning',
+	\ }
+
 augroup neomake_after_save
 	autocmd!
 	autocmd BufWritePost *.py,*cpp,*hpp,*.c,*.h Neomake
