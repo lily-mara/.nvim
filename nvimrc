@@ -4,6 +4,7 @@ Plug 'natemara/neomake'
 Plug 'airblade/vim-gitgutter'
 Plug 'natemara/vim-monokai'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'wting/rust.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -90,7 +91,7 @@ let g:neomake_warning_sign = {
 
 augroup neomake_after_save
 	autocmd!
-	autocmd BufWritePost *.py,*cpp,*hpp,*.c,*.h Neomake
+	autocmd BufWritePost *.py,*cpp,*hpp,*.c,*.h,*.sh,*.zsh,*.rs Neomake
 augroup END
 
 "Filetype specific settings
