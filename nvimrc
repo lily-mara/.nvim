@@ -69,6 +69,8 @@ nnoremap <leader>gb :Gblame<CR>
 color monokai
 
 "Neomake settings
+let g:neomake_cargo_maker = neomake#makers#rust#cargo()
+
 let g:neomake_python_pep8alt_maker = {
 	\ 'exe': 'pep8',
 	\ 'args': ['--ignore=W191'],
