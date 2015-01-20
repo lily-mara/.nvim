@@ -93,7 +93,7 @@ let g:neomake_warning_sign = {
 
 augroup neomake_after_save
 	autocmd!
-	autocmd BufWritePost *.py,*cpp,*hpp,*.c,*.h,*.sh,*.zsh,*.rs Neomake
+	autocmd BufWritePost *.py,*cpp,*hpp,*.c,*.h,*.sh,*.zsh,*.rs,*.tex Neomake
 augroup END
 
 "Filetype specific settings
