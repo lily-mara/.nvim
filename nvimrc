@@ -104,6 +104,11 @@ augroup python_files
 	autocmd FileType python setlocal shiftwidth=4
 augroup END
 
+augroup markdown_filetype_plugin
+	autocmd!
+	autocmd BufNewFile,BufRead *.md set filetype=markdown
+augroup END
+
 "Strip trailing whitespace
 function! StripTrailingWhitespaces()
 	let l = line(".")
