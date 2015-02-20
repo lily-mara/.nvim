@@ -109,6 +109,11 @@ augroup markdown_filetype_plugin
 	autocmd BufNewFile,BufRead *.md set filetype=markdown
 augroup END
 
+augroup c_header_filetype_plugin
+	autocmd!
+	autocmd BufNewFile,BufRead *.h set filetype=c
+augroup END
+
 "Strip trailing whitespace
 function! StripTrailingWhitespaces()
 	let l = line(".")
