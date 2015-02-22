@@ -71,7 +71,6 @@ nnoremap <leader>gb :Gblame<CR>
 color monokai
 
 "Neomake settings
-let g:neomake_cargo_maker = neomake#makers#rust#cargo()
 
 let g:neomake_python_pep8alt_maker = {
 	\ 'exe': 'pep8',
@@ -95,7 +94,8 @@ let g:neomake_warning_sign = {
 
 augroup neomake_after_save
 	autocmd!
-	autocmd BufWritePost *.py,*cpp,*hpp,*.c,*.h,*.sh,*.zsh,*.rs,*.tex Neomake
+	autocmd BufWritePost *.py,*cpp,*hpp,*.c,*.h,*.sh,*.zsh,*.tex Neomake
+	autocmd BufWritePost *.rs Neomake! cargo
 augroup END
 
 "Filetype specific settings
