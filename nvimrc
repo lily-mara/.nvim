@@ -5,6 +5,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'natemara/vim-monokai'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 Plug 'wting/rust.vim'
+Plug 'kien/ctrlp.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -38,7 +39,7 @@ filetype indent on
 
 "Mappings
 "----Editing nvimrc
-nnoremap <leader>e :e~/.nvim/nvimrc<CR>
+nnoremap <leader>u :e~/.nvim/nvimrc<CR>
 nnoremap <leader>r :source ~/.nvim/nvimrc<CR>
 
 "----General editing
@@ -54,7 +55,8 @@ vnoremap <C-c> <ESC>
 
 "----File manipulation
 nnoremap <leader>w :w<CR>
-nnoremap <leader>b :bNext<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>e :CtrlP<CR>
 nnoremap <leader>k :bdelete<CR>
 nnoremap <leader>k :bdelete<CR>
 nnoremap <leader>q <C-w>c
@@ -126,3 +128,19 @@ augroup trailing_whitespace
 	autocmd!
 	autocmd BufWritePre * :call StripTrailingWhitespaces()
 augroup END
+
+"CtrlP Settings
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+if has("unix")
+	set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+else
+	set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+endif
+
+let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+	\ 'file': '\v\.(exe|so|dll|out)$',
+	\ }
