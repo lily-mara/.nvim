@@ -63,7 +63,7 @@ nnoremap <leader>q <C-w>c
 
 "Vim Fugitive mappings
 nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gg :Gwrite<CR>:Gcommit<CR>
+nnoremap <leader>gg :Gcommit<CR>
 nnoremap <leader>ga :Gwrite<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Gblame<CR>
@@ -72,13 +72,13 @@ color monokai
 
 "Neomake settings
 
-let g:neomake_python_pep8alt_maker = {
-	\ 'exe': 'pep8',
+let g:neomake_python_flake8alt_maker = {
+	\ 'exe': 'flake8',
 	\ 'args': ['--ignore=W191'],
 	\ 'errorformat': '%f:%l:%c: %m',
 	\ }
 
-let g:neomake_python_enabled_makers = ['pep8alt', 'pylint']
+let g:neomake_python_enabled_makers = ['flake8alt']
 
 let g:neomake_error_sign = {
 	\ 'text': '>>',
@@ -102,6 +102,20 @@ augroup END
 augroup python_files
 	autocmd!
 	autocmd FileType python setlocal noexpandtab
+	autocmd FileType python setlocal tabstop=4
+	autocmd FileType python setlocal shiftwidth=4
+augroup END
+
+augroup yaml_files
+	autocmd!
+	autocmd FileType yaml setlocal expandtab
+	autocmd FileType yaml setlocal tabstop=2
+	autocmd FileType yaml setlocal shiftwidth=2
+augroup END
+
+augroup html_files
+	autocmd!
+	autocmd FileType html,htmldjango setlocal expandtab
 	autocmd FileType python setlocal tabstop=4
 	autocmd FileType python setlocal shiftwidth=4
 augroup END
