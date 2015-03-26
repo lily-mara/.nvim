@@ -144,3 +144,11 @@ let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
 	\ 'file': '\v\.(exe|so|dll|out)$',
 	\ }
+
+"Persistent undo! Pure money.
+if exists("&undodir")
+	set undofile
+	let &undodir=&directory
+	set undolevels=500
+	set undoreload=500
+endif
