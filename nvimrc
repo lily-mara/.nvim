@@ -46,6 +46,21 @@ filetype indent on
 color monokai
 "}}}
 
+"unmap bad keys {{{
+nnoremap <UP> <NOP>
+nnoremap <DOWN> <NOP>
+nnoremap <LEFT> <NOP>
+nnoremap <RIGHT> <NOP>
+
+vnoremap <UP> <NOP>
+vnoremap <DOWN> <NOP>
+vnoremap <LEFT> <NOP>
+vnoremap <RIGHT> <NOP>
+
+nnoremap <ESC> <NOP>
+vnoremap <ESC> <NOP>
+"}}}
+
 "Ultisnips settings {{{
 function! g:UltiSnips_Complete()
 	call UltiSnips#ExpandSnippet()
@@ -86,6 +101,8 @@ nnoremap gj j
 nnoremap gk k
 inoremap <C-c> <ESC>
 vnoremap <C-c> <ESC>
+inoremap jk <ESC>
+vnoremap jk <ESC>
 "}}}
 
 "File manipulation {{{
