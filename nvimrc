@@ -8,6 +8,8 @@ Plug 'wting/rust.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'osyo-manga/vim-over'
 Plug 'scrooloose/nerdcommenter'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -38,6 +40,30 @@ set listchars=eol:¬,tab:\ \ ,trail:·
 syntax on
 filetype plugin on
 filetype indent on
+
+"Ultisnips settings
+function! g:UltiSnips_Complete()
+	call UltiSnips#ExpandSnippet()
+	if g:ulti_expand_res == 0
+		if pumvisible()
+			return "\<C-n>"
+		else
+			call UltiSnips#JumpForwards()
+			if g:ulti_jump_forwards_res == 0
+				return "\<TAB>"
+			endif
+		endif
+	endif
+	return ""
+endfunction
+
+augroup ultisnips_complete_group
+	autocmd!
+	autocmd BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+augroup END
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 
 "Mappings
 "----Editing nvimrc
