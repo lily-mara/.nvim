@@ -6,13 +6,13 @@ Plug 'natemara/vim-monokai'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 Plug 'wting/rust.vim'
 Plug 'kien/ctrlp.vim'
+Plug 'osyo-manga/vim-over'
+Plug 'scrooloose/nerdcommenter'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
-Plug 'osyo-manga/vim-over'
-Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
