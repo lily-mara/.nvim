@@ -1,6 +1,6 @@
 call plug#begin('~/.nvim/plugged')
 
-Plug 'natemara/neomake'
+Plug 'benekastah/neomake'
 Plug 'airblade/vim-gitgutter'
 Plug 'natemara/vim-monokai'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
@@ -11,6 +11,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
+Plug 'osyo-manga/vim-over'
+Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
@@ -96,6 +98,11 @@ augroup neomake_after_save
 	autocmd!
 	autocmd BufWritePost *.py,*cpp,*hpp,*.c,*.h,*.sh,*.zsh,*.tex Neomake
 	autocmd BufWritePost *.rs Neomake! cargo
+augroup END
+
+augroup ctags_generation
+	autocmd!
+	autocmd BufWritePost *.py,*.cpp,*.c,*.h,*.asm silent! call jobstart(['ctags', '-R'])
 augroup END
 
 "Filetype specific settings
