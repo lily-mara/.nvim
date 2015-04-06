@@ -1,3 +1,4 @@
+"Plugins {{{
 call plug#begin('~/.nvim/plugged')
 
 Plug 'benekastah/neomake'
@@ -17,12 +18,14 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 
 call plug#end()
+"}}}
 
-"Leader key
+"Leader key {{{
 let mapleader=" "
 nnoremap <SPACE> <Nop>
+"}}}
 
-"Basic settings
+"Basic settings {{{
 set number
 set linebreak
 set textwidth=80
@@ -40,8 +43,10 @@ set listchars=eol:¬,tab:\ \ ,trail:·
 syntax on
 filetype plugin on
 filetype indent on
+color monokai
+"}}}
 
-"Ultisnips settings
+"Ultisnips settings {{{
 function! g:UltiSnips_Complete()
 	call UltiSnips#ExpandSnippet()
 	if g:ulti_expand_res == 0
@@ -64,13 +69,14 @@ augroup END
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
+"}}}
 
-"Mappings
-"----Editing nvimrc
+"Mappings {{{
+"---Editing nvimrc
 nnoremap <leader>u :e~/.nvim/nvimrc<CR>
 nnoremap <leader>r :source ~/.nvim/nvimrc<CR>
 
-"----General editing
+"---General editing
 nnoremap <leader><leader> V
 vnoremap <leader><leader> V
 nnoremap <leader>i :set list!<CR>
@@ -80,26 +86,26 @@ nnoremap gj j
 nnoremap gk k
 inoremap <C-c> <ESC>
 vnoremap <C-c> <ESC>
+"}}}
 
-"----File manipulation
+"File manipulation {{{
 nnoremap <leader>w :w<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>e :CtrlP<CR>
 nnoremap <leader>k :bdelete<CR>
 nnoremap <leader>k :bdelete<CR>
 nnoremap <leader>q <C-w>c
+"}}}
 
-"Vim Fugitive mappings
+"Vim Fugitive mappings {{{
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gg :Gcommit<CR>
 nnoremap <leader>ga :Gwrite<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Gblame<CR>
+"}}}
 
-color monokai
-
-"Neomake settings
-
+"Neomake settings {{{
 let g:neomake_python_flake8alt_maker = {
 	\ 'exe': 'flake8',
 	\ 'args': ['--ignore=W191'],
@@ -130,8 +136,9 @@ augroup ctags_generation
 	autocmd!
 	autocmd BufWritePost *.py,*.cpp,*.c,*.h,*.asm silent! call jobstart(['ctags', '-R'])
 augroup END
+"}}}
 
-"Filetype specific settings
+"Filetype specific settings {{{
 augroup python_files
 	autocmd!
 	autocmd FileType python setlocal noexpandtab
@@ -163,7 +170,13 @@ augroup c_header_filetype_plugin
 	autocmd BufNewFile,BufRead *.h set filetype=c
 augroup END
 
-"Strip trailing whitespace
+augroup vim_foldmethod
+	autocmd!
+	autocmd FileType vim setlocal foldmethod=marker
+augroup END
+"}}}
+
+"Strip trailing whitespace {{{
 function! StripTrailingWhitespaces()
 	let l = line(".")
 	let c = col(".")
@@ -175,8 +188,9 @@ augroup trailing_whitespace
 	autocmd!
 	autocmd BufWritePre * :call StripTrailingWhitespaces()
 augroup END
+"}}}
 
-"CtrlP Settings
+"CtrlP Settings {{{
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
@@ -191,11 +205,13 @@ let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
 	\ 'file': '\v\.(exe|so|dll|out)$',
 	\ }
+"}}}
 
-"Persistent undo! Pure money.
+"Persistent undo! Pure money. {{{
 if exists("&undodir")
 	set undofile
 	let &undodir=&directory
 	set undolevels=500
 	set undoreload=500
 endif
+"}}}
