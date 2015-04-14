@@ -59,9 +59,6 @@ vnoremap <RIGHT> <NOP>
 
 nnoremap <ESC> <NOP>
 vnoremap <ESC> <NOP>
-
-inoremap <C-c> <NOP>
-vnoremap <C-c> <NOP>
 "}}}
 
 "Ultisnips settings {{{
@@ -102,8 +99,8 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-inoremap jk <ESC>
-vnoremap jk <ESC>
+inoremap <c-c> <ESC>
+vnoremap <c-c> <ESC>
 "}}}
 
 "File manipulation {{{
