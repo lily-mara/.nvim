@@ -210,6 +210,13 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
+"Use Ag (the silver searcher) as the search command if it is present, else use
+"the default
+silent! call system("where ag")
+if v:shell_error == 0
+	let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+endif
+
 if has("unix")
 	set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 else
