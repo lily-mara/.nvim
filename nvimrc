@@ -218,9 +218,9 @@ if v:shell_error == 0
 endif
 
 if has("unix")
-	set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+	set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.git/*     " MacOSX/Linux
 else
-	set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+	set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*\\.git\\*  " Windows
 endif
 
 let g:ctrlp_custom_ignore = {
