@@ -11,8 +11,8 @@ Plug 'osyo-manga/vim-over'
 Plug 'scrooloose/nerdcommenter'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'lambdalisue/vim-gita'
 
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
@@ -88,8 +88,8 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 
 "Mappings {{{
 "---Editing nvimrc
-nnoremap <leader>u :e~/.nvim/nvimrc<CR>
-nnoremap <leader>r :source ~/.nvim/nvimrc<CR>
+nnoremap <leader>u :e $MYVIMRC<CR>
+nnoremap <leader>r :source  $MYVIMRC<CR>
 
 "---General editing
 nnoremap <leader><leader> V
@@ -113,11 +113,11 @@ nnoremap <leader>q <C-w>c
 "}}}
 
 "Vim Fugitive mappings {{{
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gg :Gcommit<CR>
-nnoremap <leader>ga :Gwrite<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gb :Gblame<CR>
+"nnoremap <leader>gs :Gstatus<CR>
+"nnoremap <leader>gg :Gcommit<CR>
+"nnoremap <leader>ga :Gwrite<CR>
+"nnoremap <leader>gd :Gdiff<CR>
+"nnoremap <leader>gb :Gblame<CR>
 "}}}
 
 "Neomake settings {{{
