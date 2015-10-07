@@ -109,6 +109,7 @@ vnoremap <c-c> <ESC>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>e :FZFR<CR>
+nnoremap <leader>t :Tags<CR>
 nnoremap <leader>k :bdelete<CR>
 
 nnoremap <leader>h <C-w>h
