@@ -6,11 +6,13 @@ Plug 'airblade/vim-gitgutter'
 Plug 'natemara/vim-monokai'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 Plug 'wting/rust.vim'
-Plug 'kien/ctrlp.vim'
 Plug 'osyo-manga/vim-over'
 Plug 'scrooloose/nerdcommenter'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -105,10 +107,15 @@ vnoremap <c-c> <ESC>
 
 "File manipulation {{{
 nnoremap <leader>w :w<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>e :CtrlP<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>e :FZFR<CR>
 nnoremap <leader>k :bdelete<CR>
-nnoremap <leader>k :bdelete<CR>
+
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+
 nnoremap <leader>q <C-w>c
 "}}}
 
@@ -143,7 +150,7 @@ let g:neomake_warning_sign = {
 
 augroup neomake_after_save
 	autocmd!
-	autocmd BufWritePost *.py,*cpp,*hpp,*.c,*.h,*.sh,*.zsh,*.tex Neomake
+	autocmd BufWritePost *.py,*cpp,*hpp,*.c,*.h,*.sh,*.zsh,*.tex,*.js Neomake
 	autocmd BufWritePost *.rs Neomake! cargo
 augroup END
 
@@ -170,7 +177,7 @@ augroup END
 
 augroup html_files
 	autocmd!
-	autocmd FileType html,htmldjango setlocal expandtab
+	"autocmd FileType html,htmldjango setlocal expandtab
 	autocmd FileType python setlocal tabstop=4
 	autocmd FileType python setlocal shiftwidth=4
 augroup END
@@ -203,6 +210,40 @@ augroup trailing_whitespace
 	autocmd!
 	autocmd BufWritePre * :call StripTrailingWhitespaces()
 augroup END
+"}}}
+
+"FZF Settings {{{
+function! s:files_browse(dir)
+	let dir = substitute(a:dir, '[^-/\\!@#$%^&*()_+=\[\]\{\}a-zA-Z0-9]', '', 'g')
+	execute 'Files' dir
+endfunction
+
+
+function! s:find_root()
+	let dir = system("git rev-parse --show-toplevel")
+	if v:shell_error == 0
+		call s:files_browse(dir)
+		return
+	endif
+
+	let dir = system("svn info . |grep -F 'Working Copy Root Path:' | cut -d: -f2 | cut -d' ' -f2")
+	if v:shell_error == 0
+		call s:files_browse(dir)
+		return
+	endif
+
+	for vcs in ['.hg']
+		let dir = finddir(vcs.'/..', ';')
+		if !empty(dir)
+			call s:files_browse(dir)
+			return
+		endif
+	endfor
+
+	Files
+endfunction
+
+command! FZFR call s:find_root()
 "}}}
 
 "CtrlP Settings {{{
