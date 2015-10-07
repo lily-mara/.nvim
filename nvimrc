@@ -90,8 +90,8 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 
 "Mappings {{{
 "---Editing nvimrc
-nnoremap <leader>u :e~/.nvim/nvimrc<CR>
-nnoremap <leader>r :source ~/.nvim/nvimrc<CR>
+nnoremap <leader>u :e $MYVIMRC<CR>
+nnoremap <leader>r :source  $MYVIMRC<CR>
 
 "---General editing
 nnoremap <leader><leader> V
