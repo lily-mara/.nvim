@@ -13,6 +13,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'Rip-Rip/clang_complete', { 'do': 'make && nvim clang_complete.vmb -c ''so %'' -c ''q''' }
 Plug 'davidhalter/jedi-vim'
+Plug 'lambdatoast/elm.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -45,6 +46,7 @@ syntax on
 filetype plugin on
 filetype indent on
 color monokai
+set backupcopy=yes
 "}}}
 
 "unmap bad keys {{{
@@ -177,6 +179,7 @@ augroup nate_filetypes
 	autocmd FileType rust setlocal tags=rusty-tags.vi
 
 	autocmd BufNewFile,BufRead *.md set filetype=markdown
+	au BufNewFile,BufRead *.y set filetype=schwift
 
 	autocmd BufNewFile,BufRead *.h set filetype=c
 augroup END
