@@ -14,6 +14,10 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'Rip-Rip/clang_complete', { 'do': 'make && nvim clang_complete.vmb -c ''so %'' -c ''q''' }
 Plug 'davidhalter/jedi-vim'
 Plug 'lambdatoast/elm.vim'
+Plug 'treycordova/rustpeg.vim'
+Plug 'fatih/vim-go'
+Plug 'zchee/deoplete-go'
+Plug 'majutsushi/tagbar'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -93,6 +97,7 @@ nnoremap gj j
 nnoremap gk k
 inoremap <c-c> <ESC>
 vnoremap <c-c> <ESC>
+nnoremap ' :OverCommandLine<CR>
 "}}}
 
 "File manipulation {{{
@@ -129,7 +134,7 @@ endif
 "Neomake settings {{{
 let g:neomake_python_flake8alt_maker = {
 	\ 'exe': 'flake8',
-	\ 'args': ['--ignore=W191'],
+	\ 'args': ['--ignore=W191,E501'],
 	\ 'errorformat': '%f:%l:%c: %m',
 	\ }
 
@@ -181,13 +186,24 @@ augroup nate_filetypes
 	autocmd BufNewFile,BufRead *.md set filetype=markdown
 	au BufNewFile,BufRead *.y set filetype=schwift
 
-	autocmd BufNewFile,BufRead *.h set filetype=c
-augroup END
+	autocmd FileType go nmap <Leader>gr <Plug>(go-rename)
+	autocmd FileType go nmap <Leader>gi <Plug>(go-info)
+	autocmd FileType go nmap <Leader>gs <Plug>(go-implements)
+	autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
 
-augroup vim_foldmethod
-	autocmd!
+	autocmd BufNewFile,BufRead *.md set filetype=markdown
+	autocmd BufNewFile,BufRead *.pl set filetype=prolog
+	autocmd BufNewFile,BufRead *.h set filetype=c
+
 	autocmd FileType vim setlocal foldmethod=marker
 augroup END
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 "}}}
 
 "Strip trailing whitespace {{{
