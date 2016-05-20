@@ -18,6 +18,7 @@ Plug 'treycordova/rustpeg.vim'
 Plug 'fatih/vim-go'
 Plug 'zchee/deoplete-go'
 Plug 'majutsushi/tagbar'
+Plug 'natemara/schwift.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
