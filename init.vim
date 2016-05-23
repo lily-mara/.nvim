@@ -19,6 +19,7 @@ Plug 'fatih/vim-go'
 Plug 'zchee/deoplete-go'
 Plug 'majutsushi/tagbar'
 Plug 'natemara/schwift.vim'
+Plug 'racer-rust/vim-racer'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -80,6 +81,7 @@ let g:jedi#smart_auto_mappings = 0
 let g:jedi#show_call_signatures = 0
 let g:deoplete#enable_at_startup = 1
 let g:clang_library_path = '/usr/lib/llvm-3.6/lib/libclang.so.1'
+let g:racer_cmd = "racer"
 "}}}
 
 "Mappings {{{
@@ -183,6 +185,7 @@ augroup nate_filetypes
 	autocmd FileType python setlocal shiftwidth=4
 
 	autocmd FileType rust setlocal tags=rusty-tags.vi
+	autocmd FileType rust setlocal hidden
 
 	autocmd BufNewFile,BufRead *.md set filetype=markdown
 	au BufNewFile,BufRead *.y set filetype=schwift
