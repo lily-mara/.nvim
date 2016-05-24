@@ -117,6 +117,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 nnoremap <leader>q <C-w>c
+set clipboard=unnamed,unnamedplus
 "}}}
 
 "Vim Fugitive mappings {{{
