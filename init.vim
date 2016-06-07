@@ -101,6 +101,7 @@ nnoremap gk k
 inoremap <c-c> <ESC>
 vnoremap <c-c> <ESC>
 nnoremap ' :OverCommandLine<CR>
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 "}}}
 
 "File manipulation {{{
@@ -130,9 +131,15 @@ nnoremap <leader>gb :Gblame<CR>
 
 "Use Ag (the silver searcher) as the search command if it is present, else use
 "the default
-silent! call system("where ag")
-if v:shell_error == 0
-	let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
 endif
 
 "Neomake settings {{{
