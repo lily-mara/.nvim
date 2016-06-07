@@ -4,7 +4,7 @@ call plug#begin('~/.nvim/plugged')
 Plug 'benekastah/neomake'
 Plug 'airblade/vim-gitgutter'
 Plug 'natemara/vim-monokai'
-Plug 'wting/rust.vim'
+Plug 'rust-lang/rust.vim'
 Plug 'osyo-manga/vim-over'
 Plug 'scrooloose/nerdcommenter'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -209,6 +209,8 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+let g:rustfmt_autosave = 1
 "}}}
 
 "Strip trailing whitespace {{{
