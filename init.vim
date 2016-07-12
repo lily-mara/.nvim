@@ -20,6 +20,7 @@ Plug 'zchee/deoplete-go'
 Plug 'majutsushi/tagbar'
 Plug 'natemara/schwift.vim'
 Plug 'racer-rust/vim-racer'
+Plug 'kien/rainbow_parentheses.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -27,6 +28,28 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 
 call plug#end()
+"}}}
+
+"Rainbow parenthesis {{{
+let g:rbpt_colorpairs = [
+	\ ['brown',       'RoyalBlue3'],
+	\ ['Darkblue',    'SeaGreen3'],
+	\ ['darkgray',    'DarkOrchid3'],
+	\ ['darkgreen',   'firebrick3'],
+	\ ['darkcyan',    'RoyalBlue3'],
+	\ ['darkred',     'SeaGreen3'],
+	\ ['darkmagenta', 'DarkOrchid3'],
+	\ ['brown',       'firebrick3'],
+	\ ['gray',        'RoyalBlue3'],
+	\ ['black',       'SeaGreen3'],
+	\ ['darkmagenta', 'DarkOrchid3'],
+	\ ['Darkblue',    'firebrick3'],
+	\ ['darkgreen',   'RoyalBlue3'],
+	\ ['darkcyan',    'SeaGreen3'],
+	\ ['darkred',     'DarkOrchid3'],
+	\ ]
+
+let g:rbpt_max = 15
 "}}}
 
 "Leader key {{{
@@ -111,6 +134,7 @@ nnoremap <leader>e :CtrlP<CR>
 nnoremap <leader>k :bdelete<CR>
 nnoremap <leader>t :CtrlPTag<CR>
 nnoremap <leader>k :bdelete<CR>
+nnoremap <leader>x :RainbowParenthesesToggle<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
