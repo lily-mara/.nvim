@@ -21,6 +21,7 @@ Plug 'majutsushi/tagbar'
 Plug 'natemara/schwift.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'cespare/vim-toml'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -280,6 +281,6 @@ if exists("&undodir")
 	set undofile
 	let &undodir=&directory
 	set undolevels=500
-	set undoreload=500
+	set undoreload=-1
 endif
 "}}}
