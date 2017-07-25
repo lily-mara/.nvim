@@ -191,7 +191,7 @@ let g:neomake_warning_sign = {
 augroup neomake_and_tags_after_save
 	autocmd!
 	autocmd BufWritePost *.py,*cpp,*hpp,*.c,*.h,*.sh,*.zsh,*.tex,*.js Neomake
-	autocmd BufWritePost *.rs Neomake! cargo
+	autocmd BufWritePost *.rs Neomake
 	autocmd BufWritePost *.py,*.cpp,*.c,*.h,*.asm silent! call jobstart(['ctags', '-R', '--exclude=build'])
 	autocmd BufWritePost *.rs silent! call jobstart(['rusty-tags', 'vi'])
 augroup END
@@ -219,6 +219,10 @@ augroup nate_filetypes
 
 	autocmd FileType rust setlocal tags=rusty-tags.vi
 	autocmd FileType rust setlocal hidden
+	autocmd FileType rust nmap gd <Plug>(rust-def)
+	autocmd FileType rust nmap gs <Plug>(rust-def-split)
+	autocmd FileType rust nmap gx <Plug>(rust-def-vertical)
+	autocmd FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 	autocmd BufNewFile,BufRead *.md set filetype=markdown
 	au BufNewFile,BufRead *.y set filetype=schwift
@@ -243,6 +247,7 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 let g:rustfmt_autosave = 1
+let g:rustfmt_fail_silently = 1
 "}}}
 
 "Strip trailing whitespace {{{
